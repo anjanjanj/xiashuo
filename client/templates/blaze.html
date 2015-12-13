@@ -1,0 +1,16 @@
+<head>
+  <title>xiashuo</title>
+</head>
+
+<template name="mainLayout">
+  <header>
+    <h1>Xiashuo</h1>
+  </header>
+  <main>
+    {{>Template.dynamic template=content}}
+  </main>
+</template>
+
+<template name="insertThreadForm">
+  {{> quickForm collection="Threads" id="insertThreadForm" type="insert"}}
+</template>

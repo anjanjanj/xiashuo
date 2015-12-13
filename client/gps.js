@@ -1,8 +1,9 @@
-if (Meteor.isClient) {
-  Session.set('locationReady', false);
-}
+// @TODO: move to somewhere else later.
+Session.set('locationReady', false);
 
-initLocation = function() {
+Geo = Object.create(null);
+
+Geo.initLocation = function() {
   //Success Will fire upon completion of the GPS check
   //State will be different for Android and iOS
 
@@ -45,11 +46,11 @@ initLocation = function() {
   Location.getGPSState(success, failure, options);
 };
 
-getLocation = function() {
+Geo.getLocation = function() {
   if (Session.get('locationReady')) {
-    return Location.getReactivePosition().latitude + ' ' + Location.getReactivePosition().longitude;
+    return [Location.getReactivePosition().longitude, Location.getReactivePosition().latitude];
   }
   else {
-    return "loading...";
+    return false;
   }
 };
