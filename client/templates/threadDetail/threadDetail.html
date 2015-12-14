@@ -4,12 +4,51 @@
   {{/contentFor}}
 
   {{#contentFor "headerTitle"}}
-    <h1 class="title">Thread Title</h1>
+    <h1 class="title">Xiashuo - {{thread.title}}</h1>
   {{/contentFor}}
 
   {{#ionView}}
-    {{#ionContent}}
-      hey
+    {{#ionContent class="content-stable"}}
+
+      {{#ionList}}
+
+        {{#with thread}}
+
+          {{#ionItem}}
+            <h1>{{title}}</h1>
+          {{/ionItem}}
+
+          {{#each posts}}
+
+            {{#ionItem avatar=true}}
+
+              <!-- <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg"> -->
+              <p>
+                {{timestamp}}
+              </p>
+              <h2>{{message}}</h2>
+
+            {{/ionItem}}
+
+          {{/each}}
+
+        {{/with}}
+
+      {{/ionList}}
+
+
+
+
+
     {{/ionContent}}
+
+    {{#ionFooterBar class="bar-stable item-input-inset"}}
+      <label class="item-input-wrapper">
+        <input id="messageBox" type="text" placeholder="Type your message" />
+      </label>
+      <button class="button button-clear" id="sendMessage">
+        Send
+      </button>
+    {{/ionFooterBar}}
   {{/ionView}}
 </template>

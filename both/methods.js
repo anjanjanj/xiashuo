@@ -35,5 +35,28 @@ Meteor.methods({
       loc: loc,
       posts: posts
     });
+  },
+
+  addPost: function (threadId, message) {
+    check(threadId, String);
+    check(message, String);
+
+    // @TODO: add rate limiting
+
+    // verify the user is logged in, just in case something went wrong
+    if (!Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+
+    Threads.update({_id: threadId}, {
+      $push: {
+        posts: {
+          authorId: Meteor.userId(),
+          message: message,
+          timestamp: new Date()
+        }
+      }
+    });
+
   }
 });

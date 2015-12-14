@@ -9,3 +9,18 @@ Template.threadDetail.onCreated(function() {
   });
 
 });
+
+Template.threadDetail.helpers({
+  thread: function() {
+    return Threads.findOne({});
+  }
+});
+
+Template.threadDetail.events({
+  "click #sendMessage": function(event, template) {
+    console.log($("#messageBox").val());
+    console.log(event);
+    console.log(template);
+    // Meteor.call('addPost', )
+  }
+});
