@@ -24,6 +24,9 @@ browser-policy
 audit-argument-checks
 mirrorcell:geolocation-plus
 brettle:accounts-anonymous-auto
-kadira:flow-router
-kadira:blaze-layout
-aldeed:autoform
+iron:router
+meteoric:ionic
+fourseven:scss@2.0.0
+meteoric:ionic-sass
+meteoric:ionicons-sass
+meteoric:autoform-ionic
