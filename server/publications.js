@@ -36,3 +36,27 @@ Meteor.publish('threads', function(distance, longitude, latitude) {
 
   return this.ready();
 });
+
+Meteor.publish('threadDetail', function(threadId) {
+  check(threadId, String);
+
+  var data = Threads.find({
+    _id: threadId
+  }, {
+    fields: {
+      _id: 1,
+      title: 1,
+      createdAt: 1,
+      updatedAt: 1,
+      "posts.message": 1,
+      "posts.timestamp": 1
+    },
+    limit: 1
+  });
+
+  if (data) {
+    return data;
+  }
+
+  return this.ready();
+});

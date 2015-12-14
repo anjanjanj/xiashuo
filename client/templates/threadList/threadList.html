@@ -11,7 +11,7 @@
     {{#ionContent}}
       {{#ionList}}
         {{#each threads}}
-          {{#ionItem buttonRight=true avatar=false class="item-icon-right"}}
+          {{#ionItem href=getThreadPath buttonRight=true avatar=false class="item-icon-right"}}
             <!-- <img src="{{avatarUrl}}"> -->
             <h2>{{title}}</h2>
             <p>{{createdAt}}</p>

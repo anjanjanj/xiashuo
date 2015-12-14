@@ -22,5 +22,10 @@ Template.threadList.onCreated(function() {
 Template.threadList.helpers({
   threads: function() {
     return Threads.find({}, {sort: {createdAt:-1}});
+  },
+
+  getThreadPath: function() {
+    // hacky.
+    return Router.routes.threadDetail.path({_id: this._id});
   }
 });

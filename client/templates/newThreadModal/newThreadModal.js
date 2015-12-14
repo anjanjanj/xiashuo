@@ -3,14 +3,14 @@ Template.newThreadModal.events({
     // @FIXME: make this work with Geo instead of using Location.
 
     event.preventDefault();
-    IonLoading.show();
+    //IonLoading.show();
 
-    console.log(event.target.title.value, event.target.message.value, Location.getReactivePosition().longitude, Location.getReactivePosition().latitude);
+    //console.log(event.target.title.value, event.target.message.value, Location.getReactivePosition().longitude, Location.getReactivePosition().latitude);
 
     //console.log(event.target.message.value);
     Meteor.call('addThread', event.target.title.value, event.target.message.value, Location.getReactivePosition().longitude, Location.getReactivePosition().latitude);
 
-    IonLoading.hide();
+    //IonLoading.hide();
     IonModal.close();
   }
 });
