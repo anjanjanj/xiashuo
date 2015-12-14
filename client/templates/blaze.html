@@ -7,10 +7,28 @@
     <h1>Xiashuo</h1>
   </header>
   <main>
+    {{>testStats}}
     {{>Template.dynamic template=content}}
   </main>
 </template>
 
 <template name="insertThreadForm">
   {{> quickForm collection="Threads" id="insertThreadForm" type="insert"}}
+</template>
+
+<template name="testStats">
+  <pre>
+  Your location: {{loc}}
+  User: {{uid}}
+  </pre>
+</template>
+
+<template name="threadList">
+  {{#if Template.subscriptionsReady}}
+    {{#each threads}}
+      <b>{{title}}</b>: {{createdAt}}
+    {{/each}}
+  {{else}}
+      <p>Loading...</p>
+  {{/if}}
 </template>
