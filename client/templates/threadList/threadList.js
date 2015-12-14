@@ -21,6 +21,6 @@ Template.threadList.onCreated(function() {
 
 Template.threadList.helpers({
   threads: function() {
-    return Threads.find();
+    return Threads.find({}, {sort: {createdAt:-1}});
   }
 });

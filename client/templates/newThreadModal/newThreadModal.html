@@ -1,3 +1,25 @@
-<!-- <template name="insertThreadForm">
-  {{> quickForm collection="Threads" id="insertThreadForm" type="insert" template="ionic"}}
-</template> -->
+<template name="newThreadModal">
+  {{#ionModal customTemplate=true}}
+    <div class="bar bar-header bar-stable">
+      <button data-dismiss="modal" type="button" class="button button-clear">Cancel</button>
+      <h2 class="title">New Thread</h2>
+    </div>
+    <div class="content has-header overflow-scroll">
+      <form id="newThreadForm" novalidate="novalidate">
+        <label type="stacked" class="item item-input item-stacked-label">
+          <span class="input-label">Title</span>
+          <input type="text" label-type="stacked" name="title" required="" maxlength="80">
+        </label>
+        <label type="stacked" class="item item-input item-stacked-label">
+          <span class="input-label">Message</span>
+          <textarea rows="3" label-type="stacked" name="message" required=""></textarea>
+        </label>
+        <div class="padding">
+          <button type="submit" class="button button-positive button-block">
+            Post Thread
+          </button>
+        </div>
+      </form>
+    </div>
+  {{/ionModal}}
+</template>

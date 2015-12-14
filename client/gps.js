@@ -1,4 +1,3 @@
-// @TODO: move to somewhere else later.
 Session.set('locationReady', false);
 
 Geo = Object.create(null);
