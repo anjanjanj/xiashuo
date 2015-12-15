@@ -19,7 +19,7 @@
           {{#ionItem href=getThreadPath buttonRight=true avatar=false class="item-icon-right"}}
             <!-- <img src="{{avatarUrl}}"> -->
             <h2>{{title}}</h2>
-            <p>{{createdAt}}</p>
+            <p>{{dateFromNow createdAt}}</p>
             {{> ionIcon icon="ios-arrow-forward" class="positive"}}
           {{/ionItem}}
         {{/each}}
