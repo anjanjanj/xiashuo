@@ -10,7 +10,14 @@
   {{#ionView}}
 
     {{#ionSubheaderBar}}
-      <h2 class="title">Chats within 1km</h2>
+      <h2 class="title">Chats within {{getSessionRange}}</h2>
+      <button class="button button-clear" data-ion-popover="selectRangePopover">
+        {{#if isAndroid}}
+          {{> ionIcon icon='android-locate'}}
+        {{else}}
+          {{> ionIcon icon='ios-location'}}
+        {{/if}}
+      </button>
     {{/ionSubheaderBar}}
 
     {{#ionContent}}

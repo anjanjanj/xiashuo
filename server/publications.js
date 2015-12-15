@@ -3,8 +3,8 @@ Meteor.publish('threads', function(distance, longitude, latitude) {
   check(longitude, Number);
   check(latitude, Number);
 
-  // @TODO: remove this and add other options
-  if (distance !== 1000) distance = 1000;
+  // only allow 100m, 1km, or 10km
+  if ([100, 1000, 10000].indexOf(distance) < 0) distance = 1000;
 
   var data = Threads.find({
     loc: {
