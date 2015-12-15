@@ -1,5 +1,4 @@
 Template.newThreadModal.events({
-  // @TODO: change submit to click?
   "submit #newThreadForm": function (event, template) {
     // @FIXME: make this work with Geo instead of using Location.
 

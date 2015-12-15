@@ -18,9 +18,16 @@ Template.threadDetail.helpers({
 
 Template.threadDetail.events({
   "click #sendMessage": function(event, template) {
-    console.log($("#messageBox").val());
-    console.log(event);
-    console.log(template);
-    // Meteor.call('addPost', )
+    // @TODO: change it to a form and use submit
+
+    // @TODO: input validation
+
+    Meteor.call('addPost', $("#post-title").attr("data-thread"), $("#messageBox").val(), function(err, data) {
+      if (err) console.log(err);
+
+      $(".content-stable").animate({scrollTop:$("div.view").height()}, 300);
+    });
+
+    $("#messageBox").val("");
   }
 });

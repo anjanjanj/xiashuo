@@ -41,12 +41,18 @@ Meteor.methods({
     check(threadId, String);
     check(message, String);
 
+    if (message.length < 1) {
+      throw new Meteor.Error("invalid-input");
+    }
+
     // @TODO: add rate limiting
 
     // verify the user is logged in, just in case something went wrong
     if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
+
+    // @TODO: verify the thread exists
 
     Threads.update({_id: threadId}, {
       $push: {
