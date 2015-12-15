@@ -20,12 +20,11 @@ insecure                # Allow all DB writes from clients (for prototyping)
 momentjs:moment
 aldeed:collection2
 check
-browser-policy
 audit-argument-checks
-mirrorcell:geolocation-plus
 brettle:accounts-anonymous-auto
 iron:router
 meteoric:ionic
 fourseven:scss@2.0.0
 meteoric:ionic-sass
 meteoric:ionicons-sass
+mdg:geolocation

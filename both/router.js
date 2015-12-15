@@ -4,6 +4,8 @@ Router.configure({
 
 Router.route('/', function () {
   this.render('threadList');
+}, {
+  name: 'threadList'
 });
 
 Router.route('/thread/:_id', function() {

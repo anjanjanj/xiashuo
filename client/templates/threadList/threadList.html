@@ -8,6 +8,11 @@
   {{/contentFor}}
 
   {{#ionView}}
+
+    {{#ionSubheaderBar}}
+      <h2 class="title">Chats within 1km</h2>
+    {{/ionSubheaderBar}}
+
     {{#ionContent}}
       {{#ionList}}
         {{#each threads}}
@@ -20,5 +25,6 @@
         {{/each}}
       {{/ionList}}
     {{/ionContent}}
+
   {{/ionView}}
 </template>
