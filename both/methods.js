@@ -23,6 +23,8 @@ Meteor.methods({
       coordinates: [lng, lat]
     };
 
+    // @TODO: call addPost instead of doing this manually?
+
     var posts = [{
       authorId: Meteor.userId(),
       message: message,
@@ -34,6 +36,9 @@ Meteor.methods({
       createdAt: new Date(),
       loc: loc,
       posts: posts
+    }, function (err, _id) {
+      if (err) throw new Meteor.Error(err);
+      Meteor.call("generateDisplayName", _id);
     });
   },
 
@@ -52,8 +57,6 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
 
-    // @TODO: verify the thread exists
-
     Threads.update({_id: threadId}, {
       $push: {
         posts: {
@@ -62,6 +65,10 @@ Meteor.methods({
           timestamp: new Date()
         }
       }
+    }, function (err, numUpdated) {
+      if (err) throw new Meteor.Error(err);
+      if (numUpdated === 0) throw new Meteor.Error("invalid-thread");
+      Meteor.call("generateDisplayName", threadId);
     });
 
   }

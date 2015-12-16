@@ -49,7 +49,8 @@ Meteor.publish('threadDetail', function(threadId) {
       createdAt: 1,
       updatedAt: 1,
       "posts.message": 1,
-      "posts.timestamp": 1
+      "posts.timestamp": 1,
+      "posts.displayName": 1
     },
     limit: 1
   });
