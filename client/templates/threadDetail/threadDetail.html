@@ -15,14 +15,14 @@
         {{#with thread}}
 
           {{#ionItem}}
-            <h2 id="post-title" data-thread="{{_id}}">{{title}}</h2>
+            <h2 id="post-title" data-thread="{{_id}}">{{getOPDisplayName posts}} {{title}}</h2>
           {{/ionItem}}
 
           {{#each posts}}
 
-            {{#ionItem avatar=true}}
+            {{#ionItem class="item-icon-left"}}
 
-              <!-- <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg"> -->
+              <div class="icon">{{displayName}}</div>
               <p>
                 {{dateFromNow timestamp}}
               </p>

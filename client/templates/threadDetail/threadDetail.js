@@ -13,6 +13,10 @@ Template.threadDetail.onCreated(function() {
 Template.threadDetail.helpers({
   thread: function() {
     return Threads.findOne({});
+  },
+
+  getOPDisplayName: function(posts) {
+    return posts[0].displayName;
   }
 });
 

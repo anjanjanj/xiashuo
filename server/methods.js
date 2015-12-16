@@ -13,8 +13,6 @@ Meteor.methods({
 
     var usersSymbols = {};
 
-    // @FIXME: debug: all users are getting the same emoji
-
     thread.posts.forEach(function(post) {
       if (!post.displayName) {
         if (usersSymbols[post.authorId]) {
@@ -32,7 +30,7 @@ Meteor.methods({
           for (var i = 0; i < 1000; i++) {
             displayName = dataSet[_.random(0, dataSet.length - 1)];
             // if it's not in thread.posts .displayName
-            if (_.some(thread.posts, function(post) {
+            if (!_.some(thread.posts, function(post) {
               return post.displayName == displayName;
             })) {
               break;
@@ -48,8 +46,18 @@ Meteor.methods({
         // the post already has a display name, we can add it to the dictionary
         usersSymbols[post.authorId] = post.displayName;
       }
+      //console.log(thread.posts);
     });
 
-    console.log(thread.posts);
+    // update the thread with the displayName'd posts
+    Threads.update({_id: threadId}, {
+      $set: {
+        posts: thread.posts
+      }
+    }, function(err, numUpdated) {
+      if (err) throw new Meteor.Error(err);
+    });
+
+    //console.log(thread.posts);
   }
 });
