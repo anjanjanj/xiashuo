@@ -23,7 +23,7 @@ Meteor.methods({
       coordinates: [lng, lat]
     };
 
-    // @TODO: call addPost instead of doing this manually?
+    // @TODO: call addPost instead of doing this manually? DRY
 
     var posts = [{
       authorId: Meteor.userId(),

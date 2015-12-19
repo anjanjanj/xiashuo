@@ -21,8 +21,8 @@ Template.threadDetail.helpers({
 });
 
 Template.threadDetail.events({
-  "click #sendMessage": function(event, template) {
-    // @TODO: change it to a form and use submit
+  "click #sendMessageBtn": function(event, template) {
+    event.preventDefault();
 
     // @TODO: input validation
 
