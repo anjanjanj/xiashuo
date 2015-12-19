@@ -10,3 +10,7 @@ Template.newThreadModal.events({
     IonModal.close();
   }
 });
+
+Template.newThreadModal.onRendered(function() {
+  $('#newThreadForm').validate();
+});

@@ -8,11 +8,11 @@
       <form id="newThreadForm" novalidate="novalidate">
         <label type="stacked" class="item item-input item-stacked-label">
           <span class="input-label">Title</span>
-          <input type="text" label-type="stacked" name="title" required="" maxlength="80">
+          <input type="text" label-type="stacked" name="title" required minlength="1" maxlength="80">
         </label>
         <label type="stacked" class="item item-input item-stacked-label">
           <span class="input-label">Message</span>
-          <textarea rows="3" label-type="stacked" name="message" required=""></textarea>
+          <textarea rows="3" label-type="stacked" name="message" minlength="1" maxlength="200" required></textarea>
         </label>
         <div class="padding">
           <input type="submit" class="button button-positive button-block" value="Post Thread" />

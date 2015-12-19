@@ -24,14 +24,17 @@ Template.threadDetail.events({
   "click #sendMessageBtn": function(event, template) {
     event.preventDefault();
 
-    // @TODO: input validation
+    // only submit if a message has been written
+    if ($("#messageBox").val().length > 0) {
 
-    Meteor.call('addPost', $("#post-title").attr("data-thread"), $("#messageBox").val(), function(err, data) {
-      if (err) console.log(err);
+      Meteor.call('addPost', $("#post-title").attr("data-thread"), $("#messageBox").val(), function(err, data) {
+        if (err) console.log(err);
 
-      $(".content-stable").animate({scrollTop:$("div.view").height()}, 300);
-    });
+        $(".content-stable").animate({scrollTop:$("div.view").height()}, 300);
+      });
 
-    $("#messageBox").val("");
+      $("#messageBox").val("");
+
+    }
   }
 });
