@@ -23,22 +23,13 @@ Meteor.methods({
       coordinates: [lng, lat]
     };
 
-    // @TODO: call addPost instead of doing this manually? DRY
-
-    var posts = [{
-      authorId: Meteor.userId(),
-      message: message,
-      timestamp: new Date()
-    }];
-
     Threads.insert({
       title: title,
       createdAt: new Date(),
-      loc: loc,
-      posts: posts
-    }, function (err, _id) {
+      loc: loc
+    }, function (err, threadId) {
       if (err) throw new Meteor.Error(err);
-      Meteor.call("generateDisplayName", _id);
+      Meteor.call("addPost", threadId, message);
     });
   },
 
