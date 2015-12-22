@@ -36,5 +36,10 @@ Template.threadDetail.events({
       $("#messageBox").val("");
 
     }
+  },
+  "click .back-button": function() {
+    $('[data-nav-container]').addClass('nav-view-direction-back');
+    $('[data-navbar-container]').addClass('nav-bar-direction-back');
+    window.history.back();
   }
 });
