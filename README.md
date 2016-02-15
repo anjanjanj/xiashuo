@@ -7,10 +7,11 @@ Users can search for chat threads posted within 100m, 1km, or 10km of their curr
 Seems to compile ok to an app. Working in iOS Simulator and on Android devices.
 
 ### Structure
-Layout uses the [meteor-ionic](https://github.com/meteoric/meteor-ionic) as a quick fix for a mobile look and behaviour.
+Layout uses the [meteor-ionic](https://github.com/meteoric/meteor-ionic) package as a quick fix for a mobile look and behaviour.
 
 Users accessing the site or app are automatically logged in anonymously and receive a user id via the `brettle:accounts-anonymous-auto` package.
 
 ### Demo
 Web demo: (http://xiashuo.meteor.com/)
+
 (May require refreshing after enabling geolocation privileges and the hosting is a bit slow)
